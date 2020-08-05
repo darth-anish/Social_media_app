@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <style>
+    body {text-align:center;}
+    h1 {color:red;}
+  </style>
+  <body>
+    <h1>Welcome</h1>
+    <div>
+      <button type="button" onclick="window.location.href='{{url_for('posts')}}';">Create a Post</button>
+    </div>
+    <h2>Posts Published</h2>
+    <div>
+      {% if post_var %}
+      {% for post in post_var %}
+      <div>
+      {{post[1]+':'+post[2]}}
+      </div>
+      {% endfor %}
+      {% else %}
+      <p>No posts available</p>
+
+
+    {% endif %}
+    </div>
+  </body>
+</html>
